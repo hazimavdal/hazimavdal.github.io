@@ -1,8 +1,8 @@
 {
     "vars": {
         "applets.contact.emailers": [
-            "contact-emailer.azurewebsites.net",
-            "contact2.avd.al"
+            "contact2.avd.al",
+            "contact-emailer.azurewebsites.net"
         ]
     }
 }
