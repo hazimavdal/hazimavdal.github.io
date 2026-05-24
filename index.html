@@ -1,111 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <style rel="stylesheet">
-        html,
-        body {
-            height: 100%;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hazim (Haz) Avdal — Cloud Engineer</title>
+  <meta name="description" content="Hazim (Haz) Avdal — Cloud Software Engineer with a cybersecurity focus, working on large-scale distributed systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fbfaf8;
+      --surface: #ffffff;
+      --text: #1c1b1a;
+      --muted: #6b6862;
+      --faint: #9a968e;
+      --line: #e9e6e0;
+      --accent: #c2410c;
+      --accent-soft: #fdeee5;
+      --radius: 14px;
+      --maxw: 680px;
+    }
 
-        .description {
-            padding-left: 20px;
-        }
-    </style>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GC579EWS6H"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14130f;
+        --surface: #1b1a16;
+        --text: #f3f0e9;
+        --muted: #a7a299;
+        --faint: #757067;
+        --line: #2a2823;
+        --accent: #fb923c;
+        --accent-soft: #2a1d12;
+      }
+    }
 
-        gtag('config', 'G-GC579EWS6H');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link href="" rel="stylesheet">
-    <title>Hazim (Haz) Avdal | Software Engineer</title>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .name {
+      font-family: "Fraunces", serif;
+      font-size: 40px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+    }
+
+    .role {
+      color: var(--muted);
+      font-size: 17px;
+      margin-top: 6px;
+    }
+
+    .pronouns {
+      color: var(--faint);
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .socials a {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: var(--surface);
+      transition: all 0.18s ease;
+    }
+
+    .socials a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .socials svg { width: 18px; height: 18px; }
+
+    /* ---------- Sections ---------- */
+    section { margin-top: 52px; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    p { color: var(--muted); margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    .text strong { color: var(--text); font-weight: 600; }
+
+    a.inline {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--accent);
+      transition: color 0.15s ease;
+    }
+    a.inline:hover { color: var(--accent); }
+
+    /* ---------- Skills ---------- */
+    .skill-group { margin-bottom: 16px; }
+    .skill-group:last-child { margin-bottom: 0; }
+
+    .skill-group h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .tag {
+      font-size: 13px;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 4px 11px;
+      border-radius: 999px;
+      transition: all 0.15s ease;
+    }
+    .tag:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ---------- Experience ---------- */
+    .job {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 20px;
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+    }
+    .job:first-of-type { padding-top: 0; border-top: none; }
+
+    .job .when {
+      font-size: 13px;
+      color: var(--faint);
+      padding-top: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .job h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .job .company { color: var(--accent); }
+    .job p { font-size: 15px; margin-top: 4px; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--faint);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 540px) {
+      .wrap { padding: 48px 20px 64px; }
+      .name { font-size: 32px; }
+      .job { grid-template-columns: 1fr; gap: 4px; }
+      .job .when { padding-top: 0; }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="grid-2">
-        <div class="section-1">
-            <img width="150" height="150" src="img/profile.jpg" />
-            <!-- <i class="fas fa-code fa-5x white"></i> -->
-            <h2>Hazim (Haz) Avdal</h2>
-            <p>Cloud Engineer</p>
-            <p><small><em>(He/Him)</em></small></p>
-            <a id="mailicon" href="https://contact.avd.al" target="_blank"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/hazimavdal" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.github.com/hazimavdal" target="_blank"><i class="fab fa-github"></i></a>
-            <br><br>
-            <p id="onhovermail">sayhello@avd.al</p>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Cloud Software Engineer</div>
+      <h1 class="name">Hazim (Haz) Avdal</h1>
+      <div class="role">Cloud Engineer <span class="pronouns">(He/Him)</span></div>
+      <nav class="socials" aria-label="Social links">
+          <a href="https://contact.avd.al" aria-label="Contact" title="Contact" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/hazimavdal" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a href="https://www.github.com/hazimavdal" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.6 8.21 11.16.6.11.82-.25.82-.57v-2c-3.34.71-4.04-1.58-4.04-1.58-.55-1.36-1.34-1.73-1.34-1.73-1.08-.73.09-.71.09-.71 1.2.08 1.83 1.21 1.83 1.21 1.07 1.8 2.81 1.28 3.49.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.21a11.5 11.5 0 0 1 6.01 0c2.29-1.53 3.3-1.21 3.3-1.21.66 1.64.24 2.86.12 3.16.77.83 1.23 1.88 1.23 3.17 0 4.54-2.81 5.53-5.49 5.83.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.82.57A11.79 11.79 0 0 0 24 12.29C24 5.78 18.63.5 12 .5z"/></svg>
+          </a>
+        </nav>
+    </header>
+
+    <section id="about">
+      <div class="section-label">About</div>
+      <div class="text">
+        <p>I am a Cloud Software Engineer with a cybersecurity focus. My academic journey includes earning both a B.S. and an M.S. in Computer Science with a specialization in Machine Learning from the <strong>University of Chicago</strong>.</p>
+        <p>With over ten years of practical experience, I have developed a robust skill set in software development across diverse domains. From coding and debugging to architecture design and collaborative teamwork, I bring a wealth of expertise to every project. This experience also includes teaching computer skills in a formal setting, as well as leveraging my software engineering skills for non-profit initiatives.</p>
+        <p>My current interests are centered around <strong>Security, Systems Engineering, and Data Analytics</strong>. I am passionate about improving digital security and optimizing system performance by applying my formal computer science training and practical software engineering skills to tackle real-world cybersecurity challenges head-on.</p>
+        <p>Outside of work, I enjoy spending time outdoors, exploring nature, and hiking. I also enjoy reading psychology and hard science fiction.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-label">Skills</div>
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">Python</span>
+          <span class="tag">Rust</span>
+          <span class="tag">.NET</span>
+          <span class="tag">C/C++</span>
         </div>
-        <div class="section-2">
-            <h2><i class="fa fa-info-circle"></i> About</h2>
-            <p align="justify">I am a Cloud Software Engineer with a cybersecurity focus. My academic journey includes
-                earning both a B.S. and an M.S. in Computer Science with a specialization in Machine Learning from the
-                University of Chicago.<br><br>With over ten years of practical experience, I have developed a robust
-                skill set in software development across diverse domains. From coding and debugging to architecture
-                design and collaborative teamwork, I bring a wealth of expertise to every project. This experience also
-                includes teaching computer skills in a formal setting, as well as leveraging my software engineering
-                skills for non-profit initiatives.<br><br>My current interests are centered around Security, Systems
-                Engineering, and Data Analytics. I am passionate about improving digital security and optimizing system
-                performance by applying my formal computer science training and practical software engineering skills to
-                tackle real-world cybersecurity challenges head-on.<br><br>Outside of work, I enjoy spending time
-                outdoors, exploring nature, and hiking. I also enjoy reading psychology and hard science fiction.</p>
-
-            <h2><i class="fa fa-cogs"></i> Skills</h2>
-            <p>Go | Python | Rust | .NET | C/C++</p>
-            <p>Machine Learning | HPC | Microservices Architecture</p>
-            <p>Cassandra | Elasticsearch | Redis | PostgreSQL</p>
-            <p>Kubernetes | Docker | Kafka | AWS</p>
-
-            <h2><i class="fa fa-history"></i> Work Experience</h2>
-
-            <section>
-                <h3><i class="fas fa-user-secret"></i> CrowdStrike - Software Engineer</h3>
-                <p><em>2020-Present</em></p>
-                <div class="description">
-                    <p align="justify">Currently leading backend engineering initiatives at CrowdStrike where I am
-                        focused on building next-generation infrastructure and security solutions. My work revolves
-                        around architecting, developing, and maintaining large-scale services across our product
-                        ecosystem. Leveraging a diverse tech stack including Go, Python, and tools like Cassandra,
-                        Kafka, Elasticsearch, and more, I tackle challenges in distributed systems and scalability
-                        everyday. From rapid prototypes to production-ready applications, I am committed to delivering
-                        high-performance solutions that handle massive data and traffic growth.</p>
-                </div>
-            </section>
-
-            <section>
-                <h3><i class="fas fa-book"></i> University of Chicago - Teaching Assistant</h3>
-                <p><em>2019-2021</em></p>
-                <div class="description">
-                    <p align="justify">I facilitated student learning in computer science by conducting office hours and
-                        providing personalized assistance. I guided students through challenging concepts by holding
-                        interactive learning sessions thus fostering their understanding and confidence in learning
-                        fundamental computer science concepts such as data structures and algorithm design.</p>
-                </div>
-            </section>
-
-            <section>
-                <h3><i class="fas fa-leaf"></i> Yazda - Senior I.T. Specialist</h3>
-                <p><em>2015-2017</em></p>
-                <div class="description">
-                    <p align="justify">As a dedicated IT professional, I programmed and implemented tailored end-user
-                        software solutions, including database systems, to address the unique needs of the organization.
-                        Additionally, I provided comprehensive IT support to six offices, overseeing PC troubleshooting,
-                        hardware repair, and network installation and setup. Furthermore, I took charge of maintaining
-                        the organization's websites and servers, ensuring seamless functionality and accessibility for
-                        users.</p>
-                </div>
-            </section>
+      </div>
+      <div class="skill-group">
+        <h3>Specializations</h3>
+        <div class="tags">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">HPC</span>
+          <span class="tag">Microservices Architecture</span>
         </div>
-    </div>
+      </div>
+      <div class="skill-group">
+        <h3>Data Stores</h3>
+        <div class="tags">
+          <span class="tag">Cassandra</span>
+          <span class="tag">Elasticsearch</span>
+          <span class="tag">Redis</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Infrastructure</h3>
+        <div class="tags">
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">AWS</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-label">Experience</div>
+
+      <div class="job">
+        <div class="when">2020 — Present</div>
+        <div>
+          <h3>Software Engineer · <span class="company">CrowdStrike</span></h3>
+          <p>Currently leading backend engineering initiatives at CrowdStrike where I am focused on building next-generation infrastructure and security solutions. My work revolves around architecting, developing, and maintaining large-scale services across our product ecosystem. Leveraging a diverse tech stack including Go, Python, and tools like Cassandra, Kafka, Elasticsearch, and more, I tackle challenges in distributed systems and scalability everyday. From rapid prototypes to production-ready applications, I am committed to delivering high-performance solutions that handle massive data and traffic growth.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">2019 — 2021</div>
+        <div>
+          <h3>Teaching Assistant · <span class="company">University of Chicago</span></h3>
+          <p>I facilitated student learning in computer science by conducting office hours and providing personalized assistance. I guided students through challenging concepts by holding interactive learning sessions thus fostering their understanding and confidence in learning fundamental computer science concepts such as data structures and algorithm design.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">2015 — 2017</div>
+        <div>
+          <h3>Senior I.T. Specialist · <span class="company">Yazda</span></h3>
+          <p>As a dedicated IT professional, I programmed and implemented tailored end-user software solutions, including database systems, to address the unique needs of the organization. Additionally, I provided comprehensive IT support to six offices, overseeing PC troubleshooting, hardware repair, and network installation and setup. Furthermore, I took charge of maintaining the organization's websites and servers, ensuring seamless functionality and accessibility for users.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 Hazim Avdal</span>
+      <a href="mailto:sayhello@avd.al">sayhello@avd.al</a>
+    </footer>
+  </div>
 </body>
-
 </html>
